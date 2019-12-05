@@ -1,0 +1,246 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+.wp-block-cgb-block-trial-form  {
+  background: $green;
+  border: 0.2rem solid $black;
+  color: $black;
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 2rem;
+}
+
+/* Division */
+#contactFormInline2 .form-group {
+  position: relative;
+  box-sizing: content-box;
+  margin-top: -25px;
+  color: #ecf0f1;
+}
+
+/* Form division */
+#contactFormInline2 {
+  background-size: auto;
+  text-align: left !important;
+  position: relative;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-left: 0px;
+  align-self: center;
+  left: -90px;
+  color: #ecf0f1;
+}
+
+/* Division */
+.main-content .flexbox {
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: left;
+  box-sizing: border-box;
+  background-image: linear-gradient(to right, #1488cc 0%, #2b32b2 100%);
+  box-shadow: 0px 0px 31px 46px #000000;
+  position: relative;
+  top: -200px;
+  left: 0px;
+  background-size: contain;
+  flex-direction: row;
+  width: auto !important;
+  min-height: 954px;
+  border-width: 10px;
+  border-color: #000000;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+/* Heading */
+.main-content h2 {
+  text-align: center;
+  width: 100%;
+  color: #ecf0f1;
+}
+
+/* Division */
+.main-content .flexbox #contactFormInline2 .form-group {
+  height: 69px !important;
+  max-width: auto !important;
+  max-height: auto !important;
+  width: 100% !important;
+}
+
+/* Division */
+#contactFormInline2 .form-group .col-sm-7 {
+  width: 489px;
+  left: 16px;
+  text-indent: -8px;
+  word-spacing: -0.8px;
+  text-align: center;
+  color: #ecf0f1;
+  background-clip: border-box;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+/* Label */
+#contactFormInline2 .form-group label {
+  color: #ecf0f1;
+  font-size: 16px;
+  left: 118px;
+  top: 47px;
+  text-align: justify;
+  text-shadow: none;
+  word-wrap: normal;
+}
+
+/* Button */
+#contactFormInline2 .form-group .btn-primary {
+  position: relative;
+  text-align: center;
+  background-color: #1abc9c;
+  border-color: #ffffff;
+  border-width: 0.1px;
+  border-style: solid;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  box-shadow: 0px 0px 7px 1px #ffffff !important;
+  box-sizing: border-box;
+  margin-top: 29px;
+  left: 35%;
+}
+
+/* Division */
+#contactFormInline2 .form-group .col-sm-offset-3 {
+  position: sticky;
+  border-color: #ffffff;
+}
+
+/* Button (click) */
+#contactFormInline2 .form-group .btn-primary.yp_click {
+  animation-duration: 0.07s;
+  animation-delay: 0s;
+  animation-name: push;
+}
+
+/* Button */
+.main-content
+  .flexbox
+  #contactFormInline2
+  .form-group
+  .col-sm-offset-3
+  .btn-primary {
+  overflow: hidden;
+  box-shadow: 0px 0px 33px 1px #ffffff !important;
+  max-width: auto !important;
+  max-height: auto !important;
+  width: 30% !important;
+  scroll-behavior: auto;
+}
+
+/* Wrapper */
+.main-content .container {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  background-size: cover;
+  color: #ecf0f1;
+}
+
+/* Main */
+.main-content {
+  width: auto !important;
+  height: 982px;
+  flex-shrink: auto;
+  min-width: auto;
+  min-height: auto;
+  max-width: auto !important;
+  box-sizing: border-box;
+  top: 0px;
+  left: 0px;
+  overflow-y: auto;
+  overflow-x: auto;
+  background-image: linear-gradient(-170deg, #2c3e50 0%, #3498db 100%);
+  color: #ecf0f1;
+}
+
+/* Input */
+#dname {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+  left: 200px;
+}
+
+/* Select */
+#country-code {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  left: 200px;
+}
+
+/* Input */
+#dphone {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+  left: 200px;
+}
+
+/* Input */
+#demail {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+  left: 200px;
+}
+
+/* Input */
+#dpass {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+  left: 200px;
+}
+
+/* Button */
+#contactFormInline2 .form-group .btn-success {
+  position: relative;
+  left: 212px;
+  font-size: 12px;
+  line-height: 1.2em;
+  text-indent: -8px;
+  letter-spacing: 1.7px;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  padding-bottom: 20px;
+  margin-top: -25px;
+  margin-bottom: -10px;
+  height: 42px;
+  width: 39%;
+  padding-top: 0px;
+}
+
+/* 576px and above screen sizes */
+@media (min-width: 576px) {
+  /* Division */
+  #contactFormInline2 .form-group .col-sm-7 {
+    max-width: 489px;
+  }
+}
