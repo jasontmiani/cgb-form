@@ -8,7 +8,7 @@ import PhoneInput from "react-phone-number-input";
 import "./style.scss";
 import "style.css";
 
-function StartTrial() {
+class StartTrial extends React.Component() {
 	const { register, errors, handleSubmit } = useForm({
 		mode: "onChange"
 	});
@@ -71,7 +71,5 @@ function StartTrial() {
 			</form>
 		</div>
 	)
-	};
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<StartTrial />, rootElement);
+	}
+}
