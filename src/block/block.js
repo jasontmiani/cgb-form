@@ -50,7 +50,9 @@ registerBlockType( 'cgb/block-form-2.0', {
 	edit: ( props ) => {
 		// Creates a <p class='wp-block-cgb-block-form-2.0'></p>.
 		return (
+		<div class={ props.className }
 			<StartTrial />
+			</div>
 		);
 	},
 
@@ -67,7 +69,9 @@ registerBlockType( 'cgb/block-form-2.0', {
 	 */
 	save: ( props ) => {
 		return (
+			<div class={ props.className }
 			<StartTrial />
+			</div>
 		);
 	},
 } );
