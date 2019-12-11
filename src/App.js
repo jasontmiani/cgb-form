@@ -9,16 +9,14 @@
  * */
 import React from 'react'
 import useForm from 'react-hook-form'
-import HiddenRecaptcha from './Components/Utils/HiddenRecaptcha'
 
-import 'style.css'
+import './App.css'
 
-const App = () => {
+function App() {
   const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => console.log(data)
   console.log(errors)
 
-  let Hider = HiddenRecaptcha
   return (
     <div className='App'>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -317,7 +315,6 @@ const App = () => {
         </select>
 
         <button type='Submit'>Start Trial</button>
-        <Hider />
       </form>
     </div>
   )
