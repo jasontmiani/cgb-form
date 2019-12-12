@@ -12,8 +12,9 @@ import useForm from 'react-hook-form'
 import './App.css'
 import axios from 'axios'
 import { Map } from 'immutable'
+import { Formik } from ''
 
-let kixie = { domain: 'https://app.kixie.com/' }
+let kixie = {'domain': 'https://app.kixie.com/' } }
 
 function App() {
   const { register, handleSubmit, errors } = useForm()
@@ -21,7 +22,7 @@ function App() {
   const onSubmit = ( data, e ) => {
     var newTrialUser = new TrialUser( {
       'fullName': data.target.value
-      'email': JSON.stringify( this.data.emailAddress ),
+      name: JSON.stringify( this.data.emailAddress ),
     } )
 
     axios(
