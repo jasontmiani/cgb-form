@@ -9,21 +9,79 @@
  * */
 import React from 'react'
 import useForm from 'react-hook-form'
-
 import './App.css'
+import axios from 'axios'
+import { Map } from 'immutable'
+
+let kixie = { domain: 'https://app.kixie.com/' }
 
 function App() {
   const { register, handleSubmit, errors } = useForm()
-  const onSubmit = data => console.log(data)
-  console.log(errors)
+
+  const onSubmit = ( data, e ) => {
+    var newTrialUser = new TrialUser( {
+      'fullName': data.target.value
+      'email': JSON.stringify( this.data.emailAddress ),
+    } )
+
+    axios(
+      method: 'post',
+
+    )
+  }
+  console.log(newTrialUser)
+
+
+    
+    
+/*     
+data: {
+                            "call":'signupform2',
+                            "name": $("#contactFormInline #dname").val(),
+                            "email": $("#contactFormInline #demail").val(),
+                            "password": $("#contactFormInline #dpass").val(),
+                            "subject": "<?php echo $crmPage['pageName']; ?> ",
+                            "country": $("#contactFormInline #country-code").val(),
+                            "phone": formatE164($("#contactFormInline #country-code").val(),$("#contactFormInline #dphone").val()),
+                            "timezone": timezonename,
+                            "message": "<?php echo $crmPage['pageName']; ?>",
+                            "ip": ip,
+                            "browser":navigator.browserInfo.browser,
+                            "browserVersion":navigator.browserInfo.version,
+                            "referrer": document.referrer,
+                            "network":n,
+                            "campaignid":c,
+                            "adgroupid":a,
+                            "sem": sem,
+                            "kw": kw,
+                            "utm":utm,
+                            "cT":cT,
+                            "ocode":$("#contactFormInline #ocode").val(),
+                            "crm":$("#contactFormInline #crm").val()
+                        } */
+
+
+    })
+    axios({
+      method: 'POST',
+      url: kixie.domain + '/rest/functions.php',
+      cache: false,
+      data: ( data = data =>
+      {
+        {
+          name: data.fullName,
+        }
+      })
+    })
+  }
 
   return (
     <div className='App'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
+          name='fullName'
           type='text'
           placeholder='Name'
-          name='name'
           ref={register({
             required: true,
             min: 4,
@@ -31,18 +89,30 @@ function App() {
             pattern: /\D/i
           })}
         />
+        {errors.fullName && (
+          <span class='error-message'>Name is Required!</span>
+        )}
+
         <input
           type='text'
           placeholder='Email'
           name='emailAddress'
           ref={register({ required: true, pattern: /^\S+@\S+$/i })}
         />
+        {errors.emailAddress && (
+          <span class='error-message'>Email Address is Required!</span>
+        )}
+
         <input
           type='text'
           placeholder='Password'
           name='password'
           ref={register({ required: true, min: 6 })}
         />
+        {errors.password && (
+          <span class='error-message'>Please pick a new password.</span>
+        )}
+
         <select
           placeholder='Country'
           name='countryCode'
@@ -319,5 +389,4 @@ function App() {
     </div>
   )
 }
-
 export default App

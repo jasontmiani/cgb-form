@@ -61,11 +61,9 @@ function StartTrial() {
       method: "post",
       url: kixie.domain + "/rest/functions.php",
       cache: false,
-      data: {}
+      data: {data}
     } )
-  }
-  }
-  );
+        
   const getIpAddress = () => {
     axios( {
       method: 'get',
