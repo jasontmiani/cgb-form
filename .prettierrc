@@ -4,8 +4,6 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": true,
   "jsxSingleQuote": true,
-  "semi": false,
   "trailingComma": "none",
-  "insertPragma": true,
-  "singleQuote": true
+  "insertPragma": true
 }
