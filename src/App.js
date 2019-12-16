@@ -11,6 +11,7 @@ import React from "react";
 import useForm from "react-hook-form";
 import "./App.css";
 import axios from "axios";
+import Cancel from "./Components/Form/Cancel.js";
 
 window.kixie = {};
 window.kixie.domain = "&lt;//qaapp.kixie.com&gt;";
@@ -53,16 +54,16 @@ export function KixiePost(data) {
   }).then(console.log("yeet", data));
 }
 
-function App() {
-  const { register, handleSubmit, errors } = useForm();
+const onCancel = () => {
+  return (
+    <div className='just-emails'>
+      <HandleCancel></HandleCancel>
+    </div>
+  );
+};
 
-  const onCancel = () => {
-    return (
-      <div className='just-emails'>
-        <HandleCancel></HandleCancel>
-      </div>
-    );
-  };
+const App = () => {
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = data => {
     axios
@@ -424,32 +425,6 @@ function App() {
       </form>
     </div>
   );
-}
-export function HandleCancel() {
-  const { register, handleSubmit } = useForm();
-
-  const onSubmit = data => {
-    axios
-      .post("https://af12ae6b-d335-47fe-987e-99bb4c1e36ae.mock.pstmn.io", data)
-      .then(console.log(data, "pressed x but still submitted, smaller yeet"));
-  };
-
-  return (
-    <div className='form-cancel'>
-      <h2>Not Wanting to Start a Trial, yet?</h2>
-      <subtitle>
-        At Least Leave Your Email to Learn Why Kixie Provides the Best Sales
-        Dialing Experience!
-      </subtitle>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <label>
-          Email Address:
-          <input name='noTrialEmail' type='email' ref={register()}></input>
-        </label>
-        <button type='submit'>Submit</button>
-      </form>
-    </div>
-  );
-}
+};
 
 export default App;
