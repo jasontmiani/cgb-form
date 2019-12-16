@@ -21,5 +21,11 @@
   "quokka.showOutputOnStart": true,
   "quokka.colorizeOutput": true,
   "editor.glyphMargin": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.colorCustomizations": {
+    "tab.unfocusedActiveBorder": "#fff0"
+  },
+  "cSpell.words": [
+    "browserslist"
+  ]
 }
