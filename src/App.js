@@ -7,10 +7,11 @@
 
  }
  * */
-import React from "react";
+import React, { useState } from "react";
 import useForm from "react-hook-form";
 import "./App.css";
 import axios from "axios";
+import StartTrialBSide from "./Components/Form/StartTrialBSide";
 
 window.kixie = {};
 window.kixie.domain = "&lt;//qaapp.kixie.com&gt;";
@@ -43,53 +44,28 @@ window.kixie.pricing = "SOME_PRICING_DATA";
 
 //kixie.domain + "/rest/functions.php"
 */
-
-export function KixiePost(data) {
-  axios({
-    method: "POST",
-    url: "https://af12ae6b-d335-47fe-987e-99bb4c1e36ae.mock.pstmn.io",
-    cache: false,
-    data: {}
-  }).then(console.log("yeet", data));
-}
-
-function App() {
-  const { register, handleSubmit, errors } = useForm();
-
-  const onCancel = () => {
-    return (
-      <div className='just-emails'>
-        <HandleCancel></HandleCancel>
-      </div>
-    );
+function InitialForm() {
+  const { onSubmit, register, errors } = useForm();
+  const handleSubmit = data => {
+    console.log(data);
   };
-
-  const onSubmit = data => {
-    axios
-      .post("https://af12ae6b-d335-47fe-987e-99bb4c1e36ae.mock.pstmn.io", data)
-      .then(console.log(data, "yeet. you sent something!"));
-  };
-
-  //*function Timezone(ipAddress) {} */
 
   return (
-    <div className='App'>
+    <div className='form'>
       <form onSubmit={handleSubmit(onSubmit)} autoComplete='true'>
-        <input name='closeForm' onClick={handleSubmit(onCancel)}>
-          X
-        </input>
         <ul>
           <label className='form-label'>
             Name:
             <input
               name='fullName'
+              label='Name:'
               type='text'
-              placeholder='Name'
+              placeholder='Enter Full Name'
               ref={register({
                 required: true,
                 min: 4,
                 max: 80,
-                pattern: /\D/i //*TODO: Check that RegEx works properly */ })
+                pattern: /\D/i
               })}
             />
           </label>
@@ -130,12 +106,11 @@ function App() {
         <ul>
           <label>
             Phone Number:
-            <PhoneInput
+            <input
               type='text'
               placeholder='Enter Phone Number'
               name='phoneNumber'
-              ref={register({ required: true, min: 6 })}
-            />
+              ref={register({ required: true, min: 6 })}></input>
           </label>
         </ul>
         {errors.phoneNumber && (
@@ -425,31 +400,55 @@ function App() {
     </div>
   );
 }
-export function HandleCancel() {
-  const { register, handleSubmit } = useForm();
 
-  const onSubmit = data => {
-    axios
-      .post("https://af12ae6b-d335-47fe-987e-99bb4c1e36ae.mock.pstmn.io", data)
-      .then(console.log(data, "pressed x but still submitted, smaller yeet"));
-  };
+function App() {
+  const [standard, setStandard] = useState(standardForm);
+  const [cancelled, setCancelled] = useState(cancelledForm);
 
-  return (
-    <div className='form-cancel'>
-      <h2>Not Wanting to Start a Trial, yet?</h2>
-      <subtitle>
-        At Least Leave Your Email to Learn Why Kixie Provides the Best Sales
-        Dialing Experience!
-      </subtitle>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <label>
-          Email Address:
-          <input name='noTrialEmail' type='email' ref={register()}></input>
-        </label>
-        <button type='submit'>Submit</button>
-      </form>
-    </div>
-  );
+  oncancel("./");
+  switch (steps) {
+    case cancelled:
+      return (
+        <div>
+          <input type='button' onClick={setStandard(standard)}>
+            X
+          </input>
+          <StartTrialBSide></StartTrialBSide>
+        </div>
+      );
+    case standard:
+      return (
+        <div>
+          <input type='button' onClick={setCancelled(cancelled)}>
+            X
+          </input>
+          <InitialForm></InitialForm>
+        </div>
+      );
+
+    default:
+      break;
+  }
+
+  function standardForm() {
+    return (
+      <div>
+        <input type='button' onClick={setCancelled(cancelled)}></input>
+
+        <InitialForm></InitialForm>
+      </div>
+    );
+  }
+
+  return <div>{standardForm | cancelledForm}</div>;
+}
+export function KixiePost(data) {
+  axios({
+    method: "POST",
+    url: "https://af12ae6b-d335-47fe-987e-99bb4c1e36ae.mock.pstmn.io",
+    cache: false,
+    data: {}
+  }).then(console.log("yeet", data));
 }
 
 export default App;
